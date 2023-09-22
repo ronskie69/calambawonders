@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.navigation.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:headerLayout="@layout/navdrawer_header"
+    app:menu="@menu/nav_drawer_menu"
+    android:background="@drawable/bg_nav_view"
+    android:layout_gravity="start"
+    android:layout_width="300dp"
+    android:id="@+id/nav_view"
+    android:layout_height="match_parent">
+
+</com.google.android.material.navigation.NavigationView>

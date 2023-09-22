@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/navigation_drawer"
+    >
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/homepage"
+            android:iconTint="@color/black_custom"
+            android:icon="@drawable/home_icon"
+            android:title="Home"/>
+
+
+        <item
+            android:id="@+id/view_map"
+            android:icon="@drawable/map_location"
+            android:title="Explore Map"/>
+
+    </group>
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/accnt"
+                android:icon="@drawable/email_icon"
+                android:title="Profile"/>
+
+            <item
+                android:id="@+id/wish"
+                android:icon="@drawable/faves"
+                android:title="My Favorites"/>
+
+            <item
+                android:id="@+id/back_home"
+                android:icon="@drawable/exit_icon"
+                android:title="Logout"/>
+        </menu>
+    </item>
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/feedback_ic"
+                android:title="Send Feedback"/>
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/about_icon"
+                android:title="Help"/>
+        </menu>
+    </item>
+</menu>

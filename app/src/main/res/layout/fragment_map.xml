@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MapFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraZoom="13"
+         >
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/nearest_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="305dp"
+                android:backgroundTint="@color/theme"
+                android:contentDescription="@string/app_name"
+                android:elevation="4dp"
+                android:outlineSpotShadowColor="@color/black_custom"
+                android:src="@drawable/nearest"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#F3BB3D" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/map_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="255dp"
+                android:backgroundTint="@color/theme"
+                android:contentDescription="@string/app_name"
+                android:elevation="4dp"
+                android:outlineSpotShadowColor="@color/black_custom"
+                android:src="@drawable/road_map"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#F3BB3D" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/tilt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="205dp"
+                android:backgroundTint="@color/theme"
+                android:contentDescription="@string/app_name"
+                android:elevation="4dp"
+                android:outlineSpotShadowColor="@color/black_custom"
+                android:src="@drawable/virtual"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#F3BB3D" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="155dp"
+                android:backgroundTint="@color/theme"
+                android:contentDescription="@string/app_name"
+                android:elevation="4dp"
+                android:outlineSpotShadowColor="@color/black_custom"
+                android:src="@drawable/my_location_icon"
+                app:borderWidth="0dp"
+                app:fabSize="mini"
+                app:rippleColor="#F3BB3D" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/inflater_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="90dp"
+                android:backgroundTint="@color/theme"
+                android:contentDescription="@string/app_name"
+                android:elevation="4dp"
+                android:outlineSpotShadowColor="@color/black_custom"
+                android:src="@drawable/down_icon"
+                app:borderWidth="0dp"
+                app:rippleColor="#F3BB3D" />
+
+            <include layout="@layout/navbar" />
+
+            <include layout="@layout/bottom_bar" />
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </com.mapbox.mapboxsdk.maps.MapView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="top"
+        android:background="@drawable/toolbar_bg"
+        app:title="Calamba Map"
+        app:titleTextColor="@color/black_custom"
+        app:menu="@menu/map_toolbar"
+        android:id="@+id/toolbar_map"
+        />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/getDirection"
+        android:src="@drawable/directions_icon"
+        android:layout_width="wrap_content"
+        app:borderWidth="0dp"
+        app:backgroundTint="@color/theme"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="90dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/vr_mode"
+        android:src="@drawable/panorama"
+        android:tint="@color/white"
+        android:layout_width="wrap_content"
+        app:borderWidth="0dp"
+        app:backgroundTint="@color/theme"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/getNavigation"
+        android:src="@drawable/transport"
+        android:tint="@color/white"
+        android:layout_width="wrap_content"
+        app:borderWidth="0dp"
+        app:backgroundTint="@color/theme"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="230dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>

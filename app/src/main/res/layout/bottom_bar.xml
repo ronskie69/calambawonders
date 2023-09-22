@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.bottomnavigation.BottomNavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom"
+    android:id="@+id/bottomBar"
+    android:elevation="12dp"
+    android:background="@drawable/bg_radius_top"
+    >
+
+    <ImageButton
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/zoom_out"
+        android:src="@drawable/zoom_out"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Tap to search"
+        android:id="@+id/search_loc"
+        android:background="@drawable/input_bg"
+        android:inputType="textLongMessage"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:layout_width="250dp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_gravity="center"
+        android:layout_height="35dp" />
+
+    <ImageButton
+        android:id="@+id/zoom_in"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/zoom_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+
+
+
+</com.google.android.material.bottomnavigation.BottomNavigationView>

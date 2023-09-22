@@ -1,0 +1,106 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CalambaWonders" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryVariant">@color/theme</item>
+        <!--  <item name="colorOnPrimary">@color/white</item>
+         Secondary brand color. -->
+        <item name="colorSecondary">@color/black_custom</item>
+        <item name="colorSecondaryVariant">@color/black_custom</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
+        <!--Customize your theme here. -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="statusBarForeground">@android:color/transparent</item>
+        <item name="bottomNavigationStyle">@color/theme</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="Q">false</item>
+        <item name="navigationViewRouteStyle">@style/NavigationMapRoute</item>
+
+    </style>
+
+    <style name="DatePicker_Dialog" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:positiveButtonText">@style/ButtonsDate</item>
+        <item name="android:negativeButtonText">@style/ButtonsDate</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="colorAccent">@color/theme</item>
+    </style>
+
+    <style name="ButtonsDate" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/theme</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:backgroundTint">@color/theme</item>
+    </style>
+
+    <style name="Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="CustomNavigationViewDark" parent="NavigationMapRoute">
+        <!-- The main turn banner view at the top of the screen -->
+        <!-- Background color of the banner -->
+        <item name="navigationViewBannerBackground">@color/theme</item>
+        <!-- Color for the primary label that displays the turn name -->
+        <item name="navigationViewBannerPrimaryText">@color/black_custom</item>
+        <!-- Color for the secondary label that occasionally appears underneath the primary label -->
+        <item name="navigationViewBannerSecondaryText">@color/white</item>
+        <!-- Primary color for the turn arrow icons-->
+        <item name="navigationViewBannerManeuverPrimary">@color/black_custom</item>
+        <!-- Secondary color for the turn arrow icons (e.g. the line segment that forks off) -->
+        <item name="navigationViewBannerManeuverSecondary">@color/black_custom</item>
+        <!-- Alternate background color for the dropdown list of upcoming steps -->
+        <item name="navigationViewListBackground">@color/theme</item>
+
+        <!-- The summary view along the bottom of the screen -->
+        <!-- Background color of the summary view -->
+        <item name="navigationViewPrimary">@color/theme</item>
+        <!-- Tint color for icons in the summary view -->
+        <item name="navigationViewSecondary">@color/black_custom</item>
+        <!-- Accent color for elements such as the recenter button -->
+        <item name="navigationViewAccent">@color/black_custom</item>
+        <!-- Color for the main duration label in the summary view -->
+        <item name="navigationViewPrimaryText">@color/black_custom</item>
+        <!-- Color for the secondary distance and ETA label in the summary view -->
+        <item name="navigationViewSecondaryText">@color/black_custom</item>
+
+        <!-- Custom colors for progress bars displayed during navigation -->
+        <item name="navigationViewProgress">@color/mapbox_blue</item>
+        <item name="navigationViewProgressBackground">@color/black_custom</item>
+
+        <!-- Custom colors for the route line and traffic
+        <item name="navigationViewRouteStyle">@style/CustomNavigationMapRoute</item>-->
+
+        <!-- Map style -->
+        <item name="navigationViewMapStyle">mapbox://styles/bipinnt/ckp9cn6f10zyk17pk5gnxpelu</item>
+
+        <!-- Other components -->
+        <!--        <item name="navigationViewDivider">#4882C6</item>-->
+        <!--        <item name="navigationViewRouteOverviewDrawable">#FAFAFA</item>-->
+        <!--        <item name="navigationViewDestinationMarker">@drawable/map_marker_light</item>-->
+        <!--        <item name="navigationViewLocationLayerStyle">@style/NavigationLocationLayerStyle</item>-->
+    </style>
+
+    <style name="Theme.CalambaWonders.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Poppins">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Theme.CalambaWonders.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.CalambaWonders.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="BottomSheetCustom" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+    <style name="BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet</item>
+    </style>
+</resources>

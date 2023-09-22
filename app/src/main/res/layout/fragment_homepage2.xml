@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.FragmentFact">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/toggle_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/menu_bar_icon"
+                android:layout_margin="15dp"
+                app:borderWidth="0dp"
+                app:tint="#fff"
+                android:tintMode="multiply"
+                app:backgroundTint="@android:color/transparent"
+                android:outlineProvider="none" />
+
+            <androidx.appcompat.widget.Toolbar
+                app:layout_collapseMode="pin"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:background="@drawable/rounded_corners_full"
+                        android:id="@+id/makiling"
+                        android:elevation="10dp"
+                        android:translationZ="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="325dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rizal_window"
+                        tools:ignore="UseAppTint" />
+
+                    <LinearLayout
+                        android:id="@+id/titleCalamba"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:elevation="3dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="80dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_gravity="center"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="-30dp"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/cal_logo1"
+                            />
+
+                        <TextView
+                            android:fontFamily="@font/poppins_regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Calamba, Laguna"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="20sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/whatsup"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="What's up! You wanna drink tonight?"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="italic"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLeft"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cornerRadius="20dp"
+                            android:elevation="8dp"
+                            android:textAllCaps="false"
+                            app:backgroundTint="@color/black_custom"
+                            android:layout_marginRight="5dp"
+                            android:text="Resorts"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cornerRadius="20dp"
+                            android:elevation="8dp"
+                            android:textAllCaps="false"
+                            android:layout_marginRight="5dp"
+                            app:backgroundTint="@color/black_custom"
+                            android:text="Tourist Spots"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCenter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cornerRadius="20dp"
+                            android:elevation="8dp"
+                            android:textAllCaps="false"
+                            app:backgroundTint="@color/black_custom"
+                            android:text="Restos"/>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location of Calamba"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="16sp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_gravity="center"
+                        android:layout_width="300dp"
+                        android:elevation="10dp"
+                        android:layout_marginTop="20dp"
+                        app:cardCornerRadius="10dp"
+                        android:translationZ="5dp"
+                        android:layout_height="200dp">
+
+                        <ImageView
+                            android:id="@+id/cal_locator"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/calamba_locate"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:padding="20dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/geography_calamba"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black_custom"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kalan-banga: The Symbol of Calamba"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="16sp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_gravity="center"
+                        android:layout_width="300dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:padding="20dp"
+                        android:translationZ="5dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="200dp">
+
+                        <ImageView
+                            android:id="@+id/banga_pic"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:elevation="8dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/banga"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Why choose Calamba?"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:padding="20dp"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_height="wrap_content"
+                        android:text="@string/why_choose_calamba"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black_custom"
+                        android:textSize="14sp"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:background="@color/black_custom"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Need a Hotel Room?"
+                            android:layout_marginTop="30dp"
+                            android:textColor="@color/theme"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="16sp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/book_now"
+                            android:layout_width="120dp"
+                            android:layout_height="50dp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black_custom"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
+                            app:backgroundTint="@color/theme"
+                            app:cornerRadius="10dp"
+                            android:text="Book Now"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="More from Calamba"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/menu_tabs"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:tabIndicatorAnimationMode="elastic"
+                        app:tabIndicatorColor="@color/theme"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabSelectedTextColor="@color/theme" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/home_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

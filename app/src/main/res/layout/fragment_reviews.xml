@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f4f5f6"
+    android:fitsSystemWindows="true"
+    android:id="@+id/review_layout"
+    android:layout_height="match_parent">
+
+    <com.menposun.calambawonders.adapter.DraggableFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="55dp"
+        android:id="@+id/delete_review"
+        app:fabSize="mini"
+        android:src="@drawable/delete_review"
+        app:backgroundTint="@color/theme"
+        app:borderWidth="0dp"
+        android:adjustViewBounds="true"
+        android:layout_height="wrap_content"/>
+
+    <com.menposun.calambawonders.adapter.DraggableFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/add_review"
+        app:fabSize="mini"
+        android:src="@drawable/add_comment"
+        app:backgroundTint="@color/theme"
+        app:borderWidth="0dp"
+        android:adjustViewBounds="true"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/no_reviews"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="No reviews yet. Be the first to make a review!"
+        android:textSize="14sp"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/review_box"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:elevation="10dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_radius"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="How's your experience here? Please share with us!"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:fadingEdge="horizontal"
+            android:numStars="5"
+            android:progressTint="@color/theme"
+            android:rating="1"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:soundEffectsEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/review_msg_holder"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/rating"
+            app:startIconDrawable="@drawable/msg_icon"
+            tools:layout_editor_absoluteX="16dp">
+
+            <EditText
+                android:hint="Tap here to review"
+                android:focusedByDefault="true"
+                android:id="@+id/review_msg"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="textLongMessage"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/send_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/theme"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/closeReviewBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_msg_holder" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/closeReviewBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/black_custom"
+            android:text="Cancel"
+            android:fontFamily="@font/poppins_regular"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/send_review" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:fontFamily="@font/poppins_regular"
+            android:layout_width="match_parent"
+            android:text="Top Places in Calamba"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:padding="20dp"
+            android:translationZ="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/shrine"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rizal_shrine"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Rizal Shrine"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:elevation="8dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlCompat" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:padding="20dp"
+            android:translationZ="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/monument"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banga"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:fontFamily="@font/poppins_regular"
+                android:layout_width="match_parent"
+                android:text="Rizal Monument"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:elevation="8dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlCompat" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:padding="20dp"
+            android:translationZ="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/bay"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banga"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:fontFamily="@font/poppins_regular"
+                android:layout_width="match_parent"
+                android:text="Calamba Baywalk"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:elevation="8dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlCompat" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:padding="20dp"
+            android:translationZ="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/mall"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="8dp"
+                android:tint="#39000000"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banga"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="SM Calamba"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:elevation="8dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlCompat" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

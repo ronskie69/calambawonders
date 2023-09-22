@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HelpFragment">
+
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="60dp"
+           android:layout_marginBottom="20dp"
+           android:orientation="vertical"
+           android:padding="20dp"
+           android:layout_height="wrap_content">
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Frequently Asked Questions"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:fontFamily="@font/poppins_regular"
+               android:textAlignment="center"
+               android:textColor="@color/black_custom"
+               android:layout_height="wrap_content"/>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:layout_marginTop="20dp"
+               android:background="@color/black_custom"
+               />
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Maps"
+               android:layout_marginTop="20dp"
+               android:textSize="21sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textStyle="bold"
+               android:textAlignment="center"
+               android:textColor="@color/black_custom"
+               android:layout_height="wrap_content"/>
+
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Map is not showing"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black"
+               android:layout_marginTop="30dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/maps_not_showing"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Can't detect my location"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black"
+               android:layout_marginTop="20sp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/cant_detect_loc"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Black screen with panorama"
+               android:textSize="14sp"
+               android:textColor="@color/black"
+               android:layout_marginTop="20sp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/black_panorama"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_marginTop="14sp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="My location is not accurate"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black"
+               android:layout_marginTop="20sp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/location_not_accurate"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Account"
+               android:layout_marginTop="20dp"
+               android:textSize="21sp"
+               android:textStyle="bold"
+               android:textAlignment="center"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black_custom"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Can't login/register?"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/cant_login_register"
+               android:textSize="14sp"
+               android:layout_marginTop="14dp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="Lost my password, how to recover?"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:textColor="@color/black"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:text="@string/lost_account"
+               android:textSize="14sp"
+               android:fontFamily="@font/poppins_regular"
+               android:layout_marginTop="14dp"
+               android:layout_height="wrap_content"/>
+
+
+       </LinearLayout>
+
+
+   </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

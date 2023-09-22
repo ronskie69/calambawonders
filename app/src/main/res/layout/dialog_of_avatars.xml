@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:clipToPadding="true"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Choose an avatar:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/man10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="44dp"
+                android:src="@drawable/man1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/man2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/man2"
+                app:layout_constraintStart_toEndOf="@+id/man10"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <ImageView
+                android:id="@+id/man3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/man3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/man2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/man4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/man4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/girl1" />
+
+            <ImageView
+                android:id="@+id/domokun"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/domokun"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/man4" />
+
+            <ImageView
+                android:id="@+id/zombie"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/zombie"
+                app:layout_constraintStart_toEndOf="@+id/domokun"
+                app:layout_constraintTop_toBottomOf="@+id/man5" />
+
+            <ImageView
+                android:id="@+id/man9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/man9"
+                app:layout_constraintStart_toEndOf="@+id/girl5"
+                app:layout_constraintTop_toBottomOf="@+id/zombie" />
+
+            <ImageView
+                android:id="@+id/assassin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/assassin"
+                app:layout_constraintStart_toEndOf="@+id/zombie"
+                app:layout_constraintTop_toBottomOf="@+id/girl4" />
+
+            <ImageView
+                android:id="@+id/girl6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl6"
+                app:layout_constraintStart_toEndOf="@+id/man9"
+                app:layout_constraintTop_toBottomOf="@+id/assassin" />
+
+            <ImageView
+                android:id="@+id/girl5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/domokun" />
+
+            <ImageView
+                android:id="@+id/girl7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/girl10" />
+
+            <ImageView
+                android:id="@+id/man6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/man6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/girl7" />
+
+            <ImageView
+                android:id="@+id/man7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/man7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/man6"
+                app:layout_constraintTop_toBottomOf="@+id/girl11" />
+
+            <ImageView
+                android:id="@+id/man8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/man8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/girl11"
+                app:layout_constraintTop_toBottomOf="@+id/girl12" />
+
+            <ImageView
+                android:id="@+id/girl11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl11"
+                app:layout_constraintStart_toEndOf="@+id/girl7"
+                app:layout_constraintTop_toBottomOf="@+id/girl8" />
+
+            <ImageView
+                android:id="@+id/girl12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl12"
+                app:layout_constraintStart_toEndOf="@+id/girl11"
+                app:layout_constraintTop_toBottomOf="@+id/girl9" />
+
+            <ImageView
+                android:id="@+id/girl10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/girl5" />
+
+            <ImageView
+                android:id="@+id/girl8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl8"
+                app:layout_constraintStart_toEndOf="@+id/girl10"
+                app:layout_constraintTop_toBottomOf="@+id/man9" />
+
+            <ImageView
+                android:id="@+id/girl9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl9"
+                app:layout_constraintStart_toEndOf="@+id/girl8"
+                app:layout_constraintTop_toBottomOf="@+id/girl6" />
+
+            <ImageView
+                android:id="@+id/girl1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/man10" />
+
+            <ImageView
+                android:id="@+id/girl2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl2"
+                app:layout_constraintStart_toEndOf="@+id/girl1"
+                app:layout_constraintTop_toBottomOf="@+id/man2" />
+
+            <ImageView
+                android:id="@+id/girl3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl3"
+                app:layout_constraintStart_toEndOf="@+id/girl2"
+                app:layout_constraintTop_toBottomOf="@+id/man3" />
+
+            <ImageView
+                android:id="@+id/girl4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/girl4"
+                app:layout_constraintStart_toEndOf="@+id/man5"
+                app:layout_constraintTop_toBottomOf="@+id/girl3" />
+
+            <ImageView
+                android:id="@+id/man5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/man5"
+                app:layout_constraintStart_toEndOf="@+id/man4"
+                app:layout_constraintTop_toBottomOf="@+id/girl2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</LinearLayout>

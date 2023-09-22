@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Search"
+        android:icon="@drawable/search_black"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="android.widget.SearchView"
+        android:id="@+id/search_view"/>
+    <item
+        android:title="Settings"
+        android:iconTint="@color/white"
+        app:showAsAction="never"
+        android:icon="@drawable/white_settings"
+        android:id="@+id/acc_nav">
+        <menu>
+
+            <!--<item
+                android:title="Default Map"
+                android:id="@+id/default_map"/>
+
+            <item
+                android:title="Silver Map"
+                android:id="@+id/silver_map"/>
+
+            <item
+                android:title="Night Map"
+                android:id="@+id/night_map"/>
+
+            <item
+                android:title="DArk Map"
+                android:id="@+id/dark_map"/>
+            <item
+                android:title="Aubergine Map"
+                android:id="@+id/aubergine_map"/>
+            <item
+                android:title="Retro Map"
+                android:id="@+id/retro_map"/>
+            <item
+                android:title="Green Map"
+                android:id="@+id/green_map"/>
+            <item
+                android:title="Light Map"
+                android:id="@+id/light_map"/>-->
+
+            <item
+                android:title="Close App"
+                android:id="@+id/close_app"/>
+
+
+        </menu>
+    </item>
+
+
+</menu>

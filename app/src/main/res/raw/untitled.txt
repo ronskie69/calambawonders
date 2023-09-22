@@ -1,0 +1,502 @@
+// DETECT LOCATION BY MAPBOX FUNCTION
+
+private void locationEnable(Style style) {
+        if (PermissionsManager.areLocationPermissionsGranted(getContext())) {
+            LocationComponent locationComponent = mapboxMap.getLocationComponent();
+
+            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext())
+                        .setMessage("Please open GPS or Location Services to continue.")
+                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                startActivity(intent);
+                            }
+                        });
+
+                dialog.show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getActivity().recreate();
+                    }
+                },2000);
+            }
+            locationComponent.activateLocationComponent(LocationComponentActivationOptions.builder(getContext(), style).build());
+            locationComponent.getLocationEngine().getLastLocation(new LocationEngineCallback<LocationEngineResult>() {
+                @Override
+                public void onSuccess(LocationEngineResult result) {
+                    mylocation = result.getLastLocation();
+
+                    MyLocation myloc = new MyLocation();
+                    myloc.setMy_lat(result.getLastLocation().getLatitude());
+                    myloc.setMy_long(result.getLastLocation().getLongitude());
+
+                    SharedPreferences.Editor editor = getContext().getSharedPreferences("location", Context.MODE_PRIVATE)
+                            .edit();
+                    editor.putFloat("latitude", (float) result.getLastLocation().getLatitude());
+                    editor.putFloat("longitude", (float) result.getLastLocation().getLongitude());
+                    editor.apply();
+
+                    showNotification("Your location has been tracked!");
+
+                    //load tourist places
+                    addToursitSpot("Tourist Spot");
+
+
+                    // check if user is anonymous or else save it to database
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(!user.isAnonymous()){
+                        addCurrentLocationToDatabase(mylocation);
+                    }
+                }
+                @Override
+                public void onFailure(Exception exception) {
+                    restartFragmentDialog();
+                }
+            });
+            if(!locationComponent.isLocationComponentEnabled()){
+                locationComponent.setLocationComponentEnabled(true);
+            }
+
+            locationComponent.setCameraMode(CameraMode.TRACKING);
+            locationComponent.setRenderMode(RenderMode.COMPASS);
+        } else {
+            permissionmng = new PermissionsManager(MapFragment.this);
+        }
+    }
+
+// ADD TO DATABASE AFTER LOCATION DETECTION
+
+    private void addCurrentLocationToDatabase(Location mylocation) {
+
+        final HashMap<Object,Double> userLocation = new HashMap<>();
+        userLocation.put("latitude", mylocation.getLatitude());
+        userLocation.put("longitude", mylocation.getLongitude());
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        database.getReference("Users").child(user.getUid())
+                .child("current_location").setValue(userLocation);
+    }
+
+
+// FETCH TOURIST SPOT FROM DATABASE BY TYPE AND ADD TO MAP
+
+public void addToursitSpot(String type){
+        lcoations.clear();
+        FirebaseDatabase.getInstance().getReference("Locations")
+                .orderByChild("type").equalTo(type)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            for(DataSnapshot data : snapshot.getChildren()){
+                                lcoations.add(
+                                        new LocationSetters(
+                                                Double.parseDouble(data.child("latitude").getValue().toString()),
+                                                Double.parseDouble(data.child("longitude").getValue().toString()),
+                                                data.child("info").getValue().toString(),
+                                                data.child("type").getValue().toString()
+                                        )
+                                );
+                            }
+                            loadTouristAttractions();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+
+// ADD ALL FETCHED LOCATIONS TO MAP
+
+private void loadTouristAttractions() {
+        distances.clear();
+        locationList.clear();
+        Drawable faves = ContextCompat.getDrawable(getContext(), R.drawable.faves);
+        Drawable malls = ContextCompat.getDrawable(getContext(), R.drawable.malls_icon);
+        Drawable restos = ContextCompat.getDrawable(getContext(), R.drawable.restaurant_color);
+        Drawable resorts = ContextCompat.getDrawable(getContext(), R.drawable.beach_colored);
+        Drawable policeStation = ContextCompat.getDrawable(getContext(), R.drawable.police);
+        Drawable hospitals = ContextCompat.getDrawable(getContext(), R.drawable.hospital);
+        Drawable terminal = ContextCompat.getDrawable(getContext(), R.drawable.terminal);
+        if(mapboxMap != null){
+            mapboxMap.clear();
+        }
+
+        for(int i = 0; i < lcoations.size(); i++){
+            if(lcoations.get(i).getType().equals("Mall")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(malls)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Restaurant")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(restos)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Tourist Spot")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(faves)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Resort")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(resorts)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Police Station")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(policeStation)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Hospital")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(hospitals)))
+                        );
+            } else if(lcoations.get(i).getType().equals("Terminal")){
+                mapboxMap.addMarker
+                        (new MarkerOptions()
+                                .position(new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()))
+                                .title(lcoations.get(i).getInfo())
+                                .snippet(lcoations.get(i).getType())
+                                .icon(IconFactory.getInstance(getContext()).fromBitmap(BitmapUtils.getBitmapFromDrawable(terminal)))
+                        );
+            }
+
+            locationList.add(
+                    new NearestLocation(lcoations.get(i).getInfo(),
+                            lcoations.get(i).getType(),
+                            new LatLng(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude()),
+                            getCalculatedDistance(lcoations.get(i).getLatitude(), lcoations.get(i).getLongitude())));
+        }
+        getNearestLocation(locationList);
+        locationList.clear();
+    }
+
+// CALCULATE EACH LOCATION DISTANCES
+
+private double getCalculatedDistance(double latitude, double longitude){
+        if(mylocation == null) {
+            return 0;
+        }
+        Location dest = new Location("");
+        dest.setLatitude(latitude);
+        dest.setLongitude(longitude);
+        double distance=(mylocation.distanceTo(dest) * 0.001);
+        return distance;
+
+    }
+
+// GET THE NEAREST LOCATION DIJKSTRA
+
+public void getNearestLocation(List<NearestLocation> locationList){
+        Drawable nearest_icon = ContextCompat.getDrawable(getContext(), R.drawable.nearest_red);
+        double minimum = locationList.size() > 0 ? locationList.get(0).getDistance() : 3.0;
+        LatLng latLng = null;
+        String locationName = "";
+
+
+        for(int i = 0; i < locationList.size(); i++){
+
+            if((locationList.get(i).getDistance() > minimum)
+            && locationList.get(i).getDistance() <= 1.0){
+                minimum = locationList.get(i).getDistance();
+                latLng = new LatLng(locationList.get(i).getLatLng());
+                locationName = locationList.get(i).getTitle();
+
+            } else if(locationList.get(i).getDistance() <= minimum){
+                minimum = locationList.get(i).getDistance();
+                latLng = new LatLng(locationList.get(i).getLatLng());
+                locationName = locationList.get(i).getTitle();
+            }
+        }
+        nearestMarker = new MarkerOptions()
+                .position(latLng)
+                .setTitle(locationName)
+                .icon(IconFactory.getInstance(getContext()).
+                        fromBitmap(BitmapUtils.getBitmapFromDrawable(nearest_icon)))
+                .setSnippet("Nearest From You");
+        nearest_location.setVisibility(View.VISIBLE);
+        Log.v("MINIMUM DISTANCE", "" + minimum);
+    }
+
+// ADD THE NEAREST LOCATION TO MAP
+
+
+public void showNearestTouristSpotLocation(){
+        mapboxMap.clear(); //removes other markers and only show the nearest one
+        if(nearestMarker != null){
+            mapboxMap.addMarker(nearestMarker);
+        }
+        nearestMarker = null;
+    }
+
+
+// GET DISTANCE OF TOURSIT SPOT BY KILOMETERS
+
+
+public double getDistance(Location current, Location destination){
+
+        if((current.getLatitude() == destination.getLatitude()) && (current.getLongitude() == destination.getLongitude())){
+            return 0;
+        } else {
+            double theta = current.getLatitude() - destination.getLatitude();
+            double dist = Math.sin(Math.toRadians(current.getLatitude()) * Math.sin(destination.getLatitude())
+            + Math.cos(Math.toRadians(current.getLatitude())) *Math.cos(Math.toRadians(destination.getLatitude()))*Math.toRadians(theta));
+            dist = Math.acos(dist);
+            dist = Math.toDegrees(dist);
+            dist = dist * 60 * 1.1515;
+            return dist;
+
+        }
+    }
+private float getDistanceFromLocation(LatLng position) {
+        SharedPreferences myloc = context.getSharedPreferences("location", Context.MODE_PRIVATE);
+
+        final double km = 0.001;
+
+        if(myloc != null){
+            //MY LOCATION
+            Location currentLoc = new Location("");
+            currentLoc.setLatitude(myloc.getFloat("latitude", 0));
+            currentLoc.setLongitude(myloc.getFloat("longitude", 0));
+
+            Location destination = new Location("");
+            destination.setLatitude(position.getLatitude());
+            destination.setLongitude(position.getLongitude());
+
+            float distanceMeters = (float) getDistance(currentLoc, destination);
+            float distanceM = currentLoc.distanceTo(destination);
+            Log.v("DISTANCE IN METERS", ""+distanceM);
+
+            if(currentLoc.getLatitude() == 0 || currentLoc.getLongitude() == 0){
+                return distanceM;
+            }
+            return (float) (distanceM * km);
+        } else {
+            return 0;
+        }
+    }
+
+
+// GET ROUTES FROM API
+
+    private void getRoute() {
+
+        Toast.makeText(getContext(), "Loading directions...Please wait!", Toast.LENGTH_LONG).show();
+
+        directionsClient = MapboxDirections.builder()
+                .origin(originPoint)
+                .destination(destinationPoint)
+                .overview(DirectionsCriteria.OVERVIEW_FULL)
+                .profile(DirectionsCriteria.PROFILE_DRIVING)
+                .steps(true)
+                .accessToken(getString(R.string.mapbox_access_token))
+                .build();
+
+        directionsClient.enqueueCall(new Callback<DirectionsResponse>() {
+            @Override
+            public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
+                //Toast.makeText(getContext(), "" + response.code(), Toast.LENGTH_SHORT).show();
+
+                if(response.body() != null){
+                    currentRoute = response.body().routes().get(0);
+                    //Toast.makeText(getContext(), currentRoute.distance().toString(), Toast.LENGTH_LONG).show();
+                    showNotification("Closest path has been tracked!");
+
+                    mapboxMap.getStyle(new Style.OnStyleLoaded() {
+                        @Override
+                        public void onStyleLoaded(@NonNull Style style) {
+                            GeoJsonSource newsource = style.getSourceAs(ROUTE_SOURCE_ID);
+
+                            if(newsource != null) {
+                                newsource.setGeoJson(LineString.fromPolyline(currentRoute.geometry(), PRECISION_6));
+                            }
+                        }
+                    });
+                } else if (response.body().routes().size() == 0){
+                    Toast.makeText(getContext(), "No routes fdound", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Unknown errror! Soon to fix...", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DirectionsResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // NAVIGATION LAUNCHER
+
+
+        public void getClosestPath(){
+            if(originPoint == null || destinationPoint == null){
+                Toast.makeText(getContext(), "No location points set", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Toast.makeText(getContext(), "Loading navigation...Please wait!", Toast.LENGTH_LONG).show();
+
+            NavigationRoute.builder(getContext())
+                    .accessToken(getResources().getString(R.string.mapbox_access_token))
+                    .origin(originPoint)
+                    .destination(destinationPoint)
+                    .profile(DirectionsCriteria.PROFILE_DRIVING)
+                    .build()
+                    .getRoute(new Callback<DirectionsResponse>() {
+                        @Override
+                        public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
+                            if(response.body() == null){
+                                Toast.makeText(getContext(), "No routes found! Check your access key.", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else if (response.body().routes().size() < 1){
+                                Toast.makeText(getContext(), "No routes found! Check internet connection.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            DirectionsRoute routes = response.body().routes().get(0);
+
+                            NavigationLauncherOptions launcher = NavigationLauncherOptions.builder()
+                                    .directionsRoute(routes)
+                                    .waynameChipEnabled(true)
+                                    .shouldSimulateRoute(true)
+                                    .build();
+
+                            NavigationLauncher.startNavigation(getActivity(), launcher);
+                        }
+
+                        @Override
+                        public void onFailure(Call<DirectionsResponse> call, Throwable t) {
+
+                        }
+                    });
+        }
+
+
+// IMAGE SLIDER IN LOCATION DETAILS FRAGMENT
+
+public void setImageSlider(String childPath) {
+        List<SlideModel> images = new ArrayList<>();
+
+        FirebaseDatabase.getInstance().getReference(DB_REFERENCE_TOURIST_SPOT).child(childPath).child("images")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        try {
+                            if(snapshot.exists()){
+                                for(DataSnapshot data: snapshot.getChildren()){
+                                    images.add(new SlideModel(""+data.child("url").getValue().toString(),
+                                            data.child("title").getValue().toString(), ScaleTypes.FIT));
+                                    Toast.makeText(getContext(), "exited: " + data.child("title").getValue().toString(), Toast.LENGTH_LONG).show();
+                                }
+                                image_slider.setImageList(images, ScaleTypes.FIT);
+                            } else {
+                                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {}
+                });
+    }
+
+// SEND REVIEW
+
+    public void sendReview(String value, String ratingValue){
+        if(TextUtils.isEmpty(ratingValue) || TextUtils.equals(ratingValue, "")){
+            ratingValue = "1.0";
+        }
+        dialog.setMessage("Adding you review...");
+        dialog.setCancelable(false);
+        dialog.show();
+
+        newvalues = new HashMap<>();
+
+        DatabaseReference dbReference = database.getReference("Users");
+        Query load = dbReference.orderByChild("email").equalTo(user.getEmail());
+        String rating = ratingValue;
+        load.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()){
+
+                    Calendar calendar = Calendar.getInstance();
+                    Date today = calendar.getTime();
+
+                    //apply user's data to hasmap
+                    newvalues.put("review", value);
+                    newvalues.put("rating", rating);
+                    newvalues.put("nickname", ds.child("nickname").getValue().toString());
+                    newvalues.put("type", ds.child("type").getValue().toString());
+                    newvalues.put("profile_pic", ds.child("profile_pic").getValue().toString());
+                    newvalues.put("UUID", user.getUid());
+                    newvalues.put("date", createTimeFormat(today));
+
+                    //send info as well as the review to database
+                    tourist_spot_reference.child(TOURIST_PLACE)
+                            .child("reviews")
+                            .child(user.getUid())
+                            .setValue(newvalues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            animateOptionsClose();
+                            createSnackbar("Your review has been added!");
+                            //scroll to the message sent
+                            LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                            layoutManager.scrollToPositionWithOffset(0, 0);
+                            dialog.cancel();
+                            dialog.dismiss();
+
+                            getReviews();
+
+                            animateOptionsClose();
+                            review_msg.getText().clear();
+                        }
+
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "Failed to add your review!", Toast.LENGTH_LONG).show();
+                            dialog.cancel();
+                            dialog.dismiss();
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });

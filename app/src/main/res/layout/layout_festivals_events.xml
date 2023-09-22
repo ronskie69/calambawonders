@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:fontFamily="@font/poppins_regular"
+            android:layout_width="match_parent"
+            android:text="Festivals and Events"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/slider_for_events"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:translationZ="10dp"
+            app:iss_auto_cycle="true"
+            app:iss_delay="5000"
+            android:elevation="10dp"
+            app:iss_period="2000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Buhayani Festival"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@string/buyahani_festival_text"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black_custom"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

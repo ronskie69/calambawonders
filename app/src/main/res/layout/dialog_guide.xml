@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@color/theme"
+    android:padding="20dp"
+    android:id="@+id/dialog_guide"
+    android:layout_height="450dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="Guides for Calamba Wonders"/>
+
+
+        <ImageView
+            android:id="@+id/guide1"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:src="@drawable/guide1"/>
+
+        <ImageView
+            android:id="@+id/guide2"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:src="@drawable/guide2"/>
+
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

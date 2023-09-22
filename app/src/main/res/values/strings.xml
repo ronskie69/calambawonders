@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Calamba Wonders</string>
+    <string name="welcome_text">Hello, welcome to Calamba Wonders Map!
+        I am glad that you are having an interest in our city and rest assured that we will provide you
+        the best tourist experience! Have fun in your safe trip!
+    </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="signup_"><u>No Account? Click and Sign up here.</u></string>
+    <string name="tooltip_email">Enter your email address (ex. sample_email123@gmail.com)</string>
+    <string name="tooltip_pass">Create your password</string>
+    <string name="did_you_know">D i d  y o u  k n o w ?</string>
+    <!-- Strings related to history, etc. -->
+    <string name="why_choose_calamba">
+        Calamba is the richest city in CALABARZON and also one of the richest in the Philippines. Calamba is aso rich in beautiful scenery, historical sights, hot spring resorts and restaurants that are pefect for tourist and also the residents. There are also many opportunities and jobs for those people who want to work in Calamba. Calamba, Laguna  is also the hometown of our national hero, Dr. Jose Rizal.
+    </string>
+    <string name="geography_calamba">
+        Calamba lies on the northern slopes of Mount Makiling, a dormant volcano. The southern terminus of the South Luzon Expressway is in Calamba and this geographic position makes the city a gateway to the southern provinces of Luzon.
+    </string>
+    <string name="buyahani_festival_text">
+        The highlight of the Buyahani Festival is the Dr. Jose P. Rizal Birth Anniversary commemoration on June 19. It will start with the traditional early morning floral offering at five historic monuments of our national hero followed by a program at the Museo ni Rizal in Calamba.
+    </string>
+    <string name="background">
+        Calamba became a component city on April 21, 2001 by virtue of Republic Act 9024. According to a legend, the word "Calamba" was taken from the phrase  "kalan-banga". Kalan-banga was an earthen jar being carried by a young woman whom a stopped to ask for the name of the place.
+    </string>
+    <string name="calamba_known_for">
+        Calamba is known to be the richest cityin Calabarzon and followed by Cabuyao City because of numerous factories. It is also known as the "Spring Resort Capital of the Philippines" because it has a lot of hot spring resorts which are mostly located in Barangays Pansol, Bucal, Bagong Kalsada and Lingga. Calamba is the hometown of the facto Philippine national hero, Dr. Jose P. Rizal.
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_checkpoint">CheckpointActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="feedback_msg">
+        If you have some concerns regarding the information provided, bugs and errors you have encountered, your account security, suggestions and recommendations for more tourist attractions and app features, feel free to send us your feedback and we can resolve or include that as soon as possible.
+    </string>
+    <string name="maps_not_showing">
+        You have to enable your GPS/ Location services. Swipe down your mobile device navigation bar and toggle "Location Services" or GPS and restart the app.
+    </string>
+    <string name="black_panorama">
+        Loading the panorama takes 1-2 minutes depending on your mobile internet speed and the panoramic size. It will stay black screen while loading the 360 image.
+    </string>
+    <string name="location_not_accurate">
+        There is a possibility that the emails logged in to your mobile device are connected to the GPS which can affect the tracking of your location. It will resolve if you disable other GPS-connected apps or gmail accounts. Your internet speed will be also a factor.
+    </string>
+    <string name="cant_detect_loc">
+        It has the same solution from the "Map not showing" issue, you have to enable Location Services in order to make the app work properly.
+    </string>
+    <string name="lost_account">
+        You may contact us on the "Feedbacks section" regarding this issue. We will send you an email as well as the solution to recover your password.
+    </string>
+    <string name="map_style">
+        It is used to change map styles
+    </string>
+    <string name="camera">
+        It is used to change camera angles or tilt the camera
+    </string>
+    <string name="user_targer">
+        It is used to view or get into current location
+    </string>
+    <string name="directions">
+        It is used to get directions for a selected place
+    </string>
+    <string name="panorama_camera">
+        It is used to view panoramic image for a selected place
+    </string>
+    <string name="streets">
+        It is used to get actual navigation for a selected place
+    </string>
+    <string name="faves">
+        Click to see tourist attractions
+    </string>
+    <string name="bldg">
+        Click to see public establishments such as malls, stations, etc.
+    </string>
+    <string name="resto">
+        Click to see the popular restaurants in Calamba
+    </string>
+    <string name="resortz">
+        Click to see public and private resorts
+    </string>
+    <string name="terminalss">
+        Click to see the terminals in Calamba
+    </string>
+    <string name="guide">
+        Before we start, we need to know the functions of each button so that you easily use the app. You have to understand it because it will only show once.
+    </string>
+    <string name="nearest">
+        It is used to find a nearest tourist spot from your location
+    </string>
+    <string name="cant_login_register">
+        Seems like you have a slow internet connection. You have to wait for a some time while signing in or registering your account.
+    </string>
+    <string name="hello_first_fragment">karlsunogan33</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="web_client_id">579057074472-5e4q8f5lnq79g377cvm5m160f10mam0a.apps.googleusercontent.com</string>
+    <string name="mapbox_access_token">pk.eyJ1Ijoia2FybHN1bm9nYW4wMDEzIiwiYSI6ImNrcGk5NGxzNjBoaG4yb3JyM3UwYWFuemIifQ.APqRSfkKVl4CUyFI9RI37A</string>
+</resources>

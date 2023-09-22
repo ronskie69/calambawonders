@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f4f5f6"
+    android:layout_height="match_parent">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/no_data"
+        android:padding="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="No record of data yet. Please add by exloring the map and click markers window"
+        android:textSize="16sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddplace"
+        android:layout_marginTop="80dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:text="Add a Place"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/black_custom"
+        app:cornerRadius="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textAllCaps="false"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:fontFamily="@font/poppins_regular"
+            android:id="@+id/recycler_view_wishlist"
+            android:padding="10dp"
+            android:layout_height="wrap_content"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>

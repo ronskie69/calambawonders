@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579057074472",
+    "project_id": "calambawonders",
+    "storage_bucket": "calambawonders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579057074472:android:3cdc610b935b19f147d01d",
+        "android_client_info": {
+          "package_name": "com.menposun.calambawonders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579057074472-5e4q8f5lnq79g377cvm5m160f10mam0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_hSD4jEmeK53lBrK16ktAuKhb9_95Gj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579057074472-5e4q8f5lnq79g377cvm5m160f10mam0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
